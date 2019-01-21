@@ -1,23 +1,27 @@
 var path = require('path')
 var webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: './src/components/dialog/index.js',
+  entry: './src/lib/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-dialog-plugin.js'
+    filename: 'vue-dialog-plugin.js',
+    library: 'VueDialogPlugin',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     rules: [
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: '[name].[ext]'
-        }
-      },
+      // {
+      //   test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 10000,
+      //     name: '[name].[ext]'
+      //   }
+      // },
       {
         test: /\.css$/,
         use: [
@@ -81,6 +85,9 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new ExtractTextPlugin({
+      filename: 'vue-dialog-plugin.css'
+    }),
   ])
 }

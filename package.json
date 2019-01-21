@@ -1,14 +1,14 @@
 {
   "name": "ym-dialog",
   "description": "dialog plugin",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "author": "ming.yan <ming.yan@ly.com>",
   "license": "MIT",
-  "main" : "dist/vue-dialog-plugin",
+  "main": "src/lib/index.js",
   "private": false,
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Colorssk/dialog-plugin"
+    "type": "git",
+    "url": "https://github.com/Colorssk/dialog-plugin"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "element-ui": "^2.4.11",
+    "extract-text-webpack-plugin": "^3.0.2",
     "lodash": "^4.17.11",
     "tinymce": "^4.9.2",
     "vue": "^2.5.11"
