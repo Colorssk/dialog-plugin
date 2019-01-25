@@ -1,11 +1,16 @@
 {
   "name": "ym-dialog",
   "description": "dialog plugin",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "ming.yan <ming.yan@ly.com>",
   "license": "MIT",
   "main": "src/lib/index.js",
   "private": false,
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Colorssk/dialog-plugin"
