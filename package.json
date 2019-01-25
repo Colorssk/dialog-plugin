@@ -1,7 +1,7 @@
 {
   "name": "ym-dialog",
   "description": "dialog plugin",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "ming.yan <ming.yan@ly.com>",
   "license": "MIT",
   "main": "src/lib/index.js",
