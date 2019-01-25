@@ -87,7 +87,7 @@
 import _ from 'lodash'
 import allrules from './rules'
 import falserules from './falseRules'
-import editor from './editor'
+// import editor from './editor'
 export default {
   name: 'dialogym', // 组件命名时候也要避免重复报错：Do not use built-in or reserved HTML elements as component id: dialog
   props: {
@@ -230,7 +230,7 @@ export default {
       return {}
     }
   },
-  components: {editor: editor},
+  // components: {editor: editor},
   methods: {
     // 选哟调整上传功能给提交按钮
     submitUpload () {
