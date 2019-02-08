@@ -41,36 +41,12 @@
             <!-- 上传文件 -->
             <el-form-item :label="item.label || 'label'" v-if="item.type == 'upload'" >
               <el-upload
-
                 class="upload-demo"
-
-                ref="upload"
-
                 :action="action"
-
-                :on-preview="handlePreview"
-
-                :before-upload="beforeAvatarUpload"
-
-                :on-remove="handleRemove"
-
-                :file-list="fileList"
-
-                :auto-upload="autoUpload"
-
                 :on-success="handleSuccess"
-
-                :data="form"
-
-                name="salaryBill">
-
+                :data="para"
+              >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <!-- 上传功能合并到提交按钮上 -->
-
-              <!-- <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button> -->
-
-              <p slot="tip" class="el-uploadtip">只能上传{{uploadtype}}文件</p>
-
             </el-upload>
             </el-form-item>
           </div>
@@ -91,6 +67,9 @@ import falserules from './falseRules'
 export default {
   name: 'dialogym', // 组件命名时候也要避免重复报错：Do not use built-in or reserved HTML elements as component id: dialog
   props: {
+    para:{
+      type: Object
+    },// 上传参数
     uploadtype: {// 上传类型
       type: Array,
       default: () => { return ['jpg', 'png'] }
@@ -232,10 +211,6 @@ export default {
   },
   // components: {editor: editor},
   methods: {
-    // 选哟调整上传功能给提交按钮
-    submitUpload () {
-      this.$refs['upload'][0].submit()// ====================调整具体看是文件上传接口是否是独立的
-    },
     handleSuccess (res, file, fileList) {
       if (res.code === 20000) {
         this.$message({
@@ -301,19 +276,6 @@ export default {
     reset (e, formName) {
       e.preventDefault()
       this.$refs[formName].resetFields()
-    },
-    onSubmit (formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          this.$emit('submit', this.form)
-          this.submitUpload()
-        } else {
-          this.$message({
-            type: 'warning',
-            message: '请安要求输入'
-          })
-        }
-      })
     },
     handleClose (done) {
       this.$confirm('确认关闭？')

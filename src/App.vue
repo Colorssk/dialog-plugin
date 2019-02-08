@@ -21,7 +21,7 @@ export default {
           {type: 'select', placeholder: '请选择', id: '1', required: false, options: [{label: '男', value: '1'}, {label: '女', value: '2'}]},
           {type: 'input', label: '名', placeholder: '请输入名', id: '2'},
           {type: 'radio', label: '选择', placeholder: '请选择', id: '1', options: ['male', 'female']},
-          {type: 'upload', id: 1, label: '文件上传'}
+          {type: 'upload', label: '文件上传'},// 文件上传不设id
         ]
       }, (data) => { console.log(data) })
     }, 500)
