@@ -43,7 +43,9 @@
               <el-upload
                 class="upload-demo"
                 :action="action"
+                :limit="limit"
                 :on-success="handleSuccess"
+                :show-file-list="showFileList"
                 :data="para"
               >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
@@ -105,8 +107,8 @@ export default {
   },
   data () {
     return {
-      autoUpload: false,
-      fileList: [],
+      showFileList: false,
+      limit: 1,
       Url: 'http://train.t.17usoft.com/trainskyzenapi/views/insertSkyFile',
       content: null,
       editorSetting: {
